@@ -1083,6 +1083,24 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="rails_autolink (vbundled(1.1.6)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rails_autolink-1.1.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rails_autolink-1.1.6/test" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rails_autolink-1.1.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rails_autolink-1.1.6/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rails_autolink-1.1.6/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="railties (vbundled(5.2.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
