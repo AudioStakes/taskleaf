@@ -64,4 +64,9 @@ Rails.application.configure do
 
   # 用途に合わせてログファイルを分けるときはロガー設定を追記する。（以下は週ごとのログ）
   config.custom_logger = Logger.new('log/custom.log', 'weekly')
+
+  # ロガーのフォーマット設定
+  config.logger.formatter = proc { |severity, timestamp, progname, message|
+    "#{timestamp} :#{severity}: #{message}\n"
+  }
 end
