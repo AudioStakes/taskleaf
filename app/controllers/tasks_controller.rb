@@ -23,6 +23,12 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
 
     if @task.save
+      # ログにタスクの情報をdebugレベルで出力
+      logger.debug "task: #{@task.attributes.inspect}"
+
+      # 自分で追加したロガーへ出力
+      Rails.application.config.custom_logger.debug 'cutsom_loggerに出力'
+
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
       render :new
