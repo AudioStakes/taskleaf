@@ -7,6 +7,10 @@ table.table.table-hover
     tr
       th= Task.human_attribute_name(:id)
       td= @task.id
+      / HTMLエスケープをスキップするには以下３パターンがある
+      / ①　td= raw "<script>alert('Hello');</script>"
+      / ②　td= "<script>alert('Hello');</script>".html_safe
+      / ③　td== "<script>alert('Hello');</script>"
     tr
       th= Task.human_attribute_name(:name)
       td= @task.name
