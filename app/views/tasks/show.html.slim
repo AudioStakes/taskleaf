@@ -11,6 +11,8 @@ table.table.table-hover
       / ①　td= raw "<script>alert('Hello');</script>"
       / ②　td= "<script>alert('Hello');</script>".html_safe
       / ③　td== "<script>alert('Hello');</script>"
+      / エスケープをスキップしつつ危険なタグのみ出力しなくするには以下のsanitizeヘルパーを使う
+      / td= sanitize "<script>alert('Hello');</script>"
     tr
       th= Task.human_attribute_name(:name)
       td= @task.name
