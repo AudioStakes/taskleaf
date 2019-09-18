@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :users
   end
   root to: 'tasks#index'
-  resources :tasks
+  resources :tasks do
+    post :confirm, action: :confirtm_new, on: :new
+  end
 
   # indexだけのルート
   # resources :tasks, only [:index]
