@@ -27,6 +27,11 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
 
+    if params[:back].present?
+      render :new
+      return
+    end
+
     if @task.save
       # ログにタスクの情報をdebugレベルで出力
       logger.debug "task: #{@task.attributes.inspect}"
