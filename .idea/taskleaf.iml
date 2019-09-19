@@ -982,6 +982,19 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="polyamorous (vbundled(2.3.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/polyamorous-2.3.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/polyamorous-2.3.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="popper_js (vbundled(1.14.5)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1192,6 +1205,30 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rake-12.3.3/bin" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rake-12.3.3/doc" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rake-12.3.3/exe" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ransack (vbundled(2.3.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/logo" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/polyamorous" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/logo" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/polyamorous" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/logo" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/ransack-2.3.0/polyamorous" />
         </excluded>
       </library>
     </orderEntry>
