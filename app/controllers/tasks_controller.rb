@@ -40,6 +40,8 @@ class TasksController < ApplicationController
       # 自分で追加したロガーへ出力
       Rails.application.config.custom_logger.debug 'cutsom_loggerに出力'
 
+      TaskMailer.creation_email(@task).deliver_now
+
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
       render :new
