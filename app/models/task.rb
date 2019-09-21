@@ -5,6 +5,7 @@ class Task < ApplicationRecord
   before_validation :set_nameless_name
 
   belongs_to :user
+  has_one_attached :image
 
   scope :recent, -> { order(created_at: :desc)}
 
@@ -16,6 +17,19 @@ class Task < ApplicationRecord
   # Ransackによる検索の条件に含める関連を指定。意図しない関連を含めないようにするため、空配列を返す。
   def self.ransackable_associations(auth_object = nil)
     []
+  end
+
+  def self.csv_attributes
+    ["name", "description", "created_at", "updated_at"]
+  end
+
+  def self.generate_csv
+    CSV.generate(headers: true) do |csv|
+      csv << csv_attributes
+      all.each do |task|
+        csv << csv_attributes.map{ |attr| task.send(attr)}
+      end
+    end
   end
 
   private
