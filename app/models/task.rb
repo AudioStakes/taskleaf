@@ -5,6 +5,7 @@ class Task < ApplicationRecord
   before_validation :set_nameless_name
 
   belongs_to :user
+  has_one_attached :image
 
   scope :recent, -> { order(created_at: :desc)}
 
