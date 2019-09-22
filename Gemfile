@@ -70,3 +70,5 @@ gem 'rb-readline'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_autolink'
 gem 'ransack'
+gem 'kaminari'
+gem 'sidekiq', "~> 5.2"
