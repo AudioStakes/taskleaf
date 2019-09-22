@@ -46,6 +46,7 @@ class TasksController < ApplicationController
       Rails.application.config.custom_logger.debug 'cutsom_loggerに出力'
 
       TaskMailer.creation_email(@task).deliver_now
+      SampleJob.perform_later
 
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
