@@ -72,3 +72,4 @@ gem 'rails_autolink'
 gem 'ransack'
 gem 'kaminari'
 gem 'sidekiq', "~> 5.2"
+gem 'webpacker'
