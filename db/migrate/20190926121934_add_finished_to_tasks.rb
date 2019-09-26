@@ -6,7 +6,7 @@ class AddFinishedToTasks < ActiveRecord::Migration[5.2]
     add_column :tasks, :finished, :boolean, null: false, default: false
 
     Task.find_each do |task|
-      task.update(finished: true)
+      task.update!(finished: true)
     end
   end
 
