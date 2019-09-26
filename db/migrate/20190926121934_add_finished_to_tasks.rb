@@ -1,4 +1,7 @@
 class AddFinishedToTasks < ActiveRecord::Migration[5.2]
+  class Task < ActiveRecord::Base
+  end
+  
   def up
     add_column :tasks, :finished, :boolean, null: false, default: false
 
