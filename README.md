@@ -1,4 +1,12 @@
-# 現場で使える Ruby on Rails 5速習実践ガイド
-  * Chapter 3 タスク管理アプリケーションを作ろう
-  * Chapter 4 現実の複雑さに対応する
-  * Chapter 5 テストをはじめよう
+# taskleaf
+このRailsアプリは「現場で使える Ruby on Rails 5速習実践ガイド」を参考に作成しています。
+
+# Dependency
+* Rails version
+  * 5.2.3
+* Ruby version
+  * 2.6.3
+* PostgreSQL version
+  * 11.5
+
+# Setup
