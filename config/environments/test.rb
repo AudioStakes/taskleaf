@@ -43,4 +43,18 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # development環境では１日ごとにログをとるように設定
+  config.logger = Logger.new('log/development.log', 'daily')
+
+  # 用途に合わせてログファイルを分けるときはロガー設定を追記する。（以下は週ごとのログ）
+  config.custom_logger = Logger.new('log/custom.log', 'weekly')
+
+  # ロガーのフォーマット設定
+  config.logger.formatter = proc { |severity, timestamp, progname, message|
+    "#{timestamp} :#{severity}: #{message}\n"
+  }
+
+  # RailsとSidekiqを連携
+  config.active_job.queue_adapter = :sidekiq
 end
