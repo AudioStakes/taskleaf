@@ -5,4 +5,8 @@ FactoryBot.define do
     email { 'test1@example.com' }
     password { 'password' }
   end
+
+  factory :admin_user, parent: :user do
+    admin { true }
+  end
 end
