@@ -68,5 +68,13 @@ describe 'タスク管理機能', type: :system do
         expect(page).to have_selector '.alert-success', text: '名前なし'
       end
     end
+
+    context '新規作成画面で名称の長さを３１文字以上にしたとき' do
+      let(:task_name) { '1234567890123456789012345678901' }
+
+      example 'エラーとなる ' do
+        expect(page).to have_content '名称は30文字以内で入力してください'
+      end
+    end
   end
 end
