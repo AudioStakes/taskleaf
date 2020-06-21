@@ -6,7 +6,6 @@ describe 'タスク管理機能', type: :system do
   let!(:task_a) { FactoryBot.create(:task, name:'最初のタスク', user: user_a) }
 
   before do
-    # ログインする
     visit login_path
     fill_in 'メールアドレス', with: login_user.email
     fill_in 'パスワード', with: login_user.password
@@ -14,7 +13,6 @@ describe 'タスク管理機能', type: :system do
   end
 
   shared_examples_for 'ユーザーAが作成したタスクが表示される' do
-    # 作成済みのタスクの名称が画面上に表示されていることを確認
     it { expect(page).to have_content '最初のタスク' }
   end
 
@@ -29,7 +27,6 @@ describe 'タスク管理機能', type: :system do
       let(:login_user) { user_b }
 
       it 'ユーザーAが作成したタスクが表示されない' do
-        # ユーザーAが作成したタスクの名称が画面上に表示されていないことを確認
         expect(page).to have_no_content '最初のタスク'
       end
     end
@@ -66,13 +63,6 @@ describe 'タスク管理機能', type: :system do
 
     context '新規作成画面で名称を入力しなかったとき' do
       let(:task_name) { '' }
-
-      # ↓は参考書のミス？名称がない場合は「名前なし」が自動で設定されるようにChapter4-4-2で実装済み
-      # it 'エラーとなる ' do
-      #   within '#error_explanation' do
-      #     expect(page).to have_content '名称を入力してください'
-      #   end
-      # end
 
       it '名称に「名前なし」が自動で設定される ' do
         expect(page).to have_selector '.alert-success', text: '名前なし'
