@@ -12,8 +12,8 @@ describe 'タスク管理機能', type: :system do
     click_button 'ログインする'
   end
 
-  shared_examples_for 'ユーザーAが作成したタスクが表示される' do
-    it { expect(page).to have_content '最初のタスク' }
+  shared_examples 'ユーザーAが作成したタスクが表示される' do
+    example { expect(page).to have_content '最初のタスク' }
   end
 
   describe '一覧表示機能' do
@@ -26,7 +26,7 @@ describe 'タスク管理機能', type: :system do
     context 'ユーザーBがログインしているとき' do
       let(:login_user) { user_b }
 
-      it 'ユーザーAが作成したタスクが表示されない' do
+      example 'ユーザーAが作成したタスクが表示されない' do
         expect(page).to have_no_content '最初のタスク'
       end
     end
@@ -56,7 +56,7 @@ describe 'タスク管理機能', type: :system do
     context '新規作成画面で名称を入力したとき' do
       let(:task_name) { '新規作成のテストを書く' }
 
-      it '正常に登録される' do
+      example '正常に登録される' do
         expect(page).to have_selector '.alert-success', text: '新規作成のテストを書く'
       end
     end
@@ -64,7 +64,7 @@ describe 'タスク管理機能', type: :system do
     context '新規作成画面で名称を入力しなかったとき' do
       let(:task_name) { '' }
 
-      it '名称に「名前なし」が自動で設定される ' do
+      example '名称に「名前なし」が自動で設定される ' do
         expect(page).to have_selector '.alert-success', text: '名前なし'
       end
     end

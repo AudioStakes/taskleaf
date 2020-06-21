@@ -15,7 +15,7 @@ RSpec.describe TaskMailer, type: :mailer do
   describe '#creation_email' do
     let(:mail) { TaskMailer.creation_email(task) }
 
-    it '想定どおりのメールが生成されている' do
+    example '想定どおりのメールが生成されている' do
       # ヘッダ
       expect(mail.subject).to eq('タスク作成完了メール')
       expect(mail.to).to eq(['user@example.com'])
