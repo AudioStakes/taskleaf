@@ -16,5 +16,7 @@
 // const imagePath = (name) => images(name, true)
 
 import 'taskleaf/hello';
+import Rails from '@rails/ujs';
+Rails.start();
 
 console.log('Hello World from Webpacker')
