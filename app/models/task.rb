@@ -47,6 +47,6 @@ class Task < ApplicationRecord
   end
 
   def set_nameless_name
-    self.name = '名前なし' if name.blank?
+    self.name = '名無し' if name.blank?
   end
 end

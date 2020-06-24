@@ -11,7 +11,7 @@ describe 'ユーザー管理機能', type: :system do
     click_button 'ログインする'
   end
 
-  describe 'ナビゲーション' do
+  describe 'ナビゲーションバー' do
     context '管理者ユーザーがログインしているとき' do
       let(:login_user) { admin_user }
 
@@ -37,7 +37,7 @@ describe 'ユーザー管理機能', type: :system do
     context '管理者ユーザーがログインしているとき' do
       let(:login_user) { admin_user }
 
-      example '作成したユーザーが表示される' do
+      example 'ユーザー一覧が表示される' do
         expect(page).to have_content '管理者ユーザー'
         expect(page).to have_content '非管理者ユーザー'
       end
@@ -46,7 +46,7 @@ describe 'ユーザー管理機能', type: :system do
     context '非管理者ユーザーがログインしているとき' do
       let(:login_user) { non_admin_user }
 
-      example 'トップ画面が表示される' do
+      example 'トップ画面へリダイレクトされる' do
         expect(page).to have_content 'タスク一覧'
       end
     end
@@ -82,42 +82,42 @@ describe 'ユーザー管理機能', type: :system do
       click_button '登録する'
     end
 
-    context '新規作成画面で名前、メールアドレス、パスワード、パスワード（確認）を入力したとき' do
+    context '名前、メールアドレス、パスワード、パスワード（確認）を入力したとき' do
       example '正常に登録される' do
         expect(page).to have_selector '.alert-success', text: 'ユーザー「テストユーザー」を登録しました'
       end
     end
 
-    context '新規作成画面で名前を入力しなかったとき' do
+    context '名前を入力しなかったとき' do
       let(:user_name) { '' }
 
-      example 'エラーとなる ' do
+      example '名前未入力のエラーとなる ' do
         expect(page).to have_content '名前を入力してください'
       end
     end
 
-    context '新規作成画面でメールアドレスを入力しなかったとき' do
+    context 'メールアドレスを入力しなかったとき' do
       let(:user_mail) { '' }
 
-      example 'エラーとなる ' do
+      example 'メールアドレス未入力のエラーとなる ' do
         expect(page).to have_content 'メールアドレスを入力してください'
       end
     end
 
-    context '新規作成画面でパスワードとパスワード（確認）を入力しなかったとき' do
+    context 'パスワードとパスワード（確認）を入力しなかったとき' do
       let(:user_password) { '' }
       let(:user_password_confirm) { '' }
 
-      example 'エラーとなる ' do
+      example 'パスワード未入力のエラーとなる ' do
         expect(page).to have_content 'パスワードを入力してください'
       end
     end
 
-    context '新規作成画面でパスワードとパスワード（確認）が一致しなかったとき' do
+    context 'パスワードとパスワード（確認）が一致しなかったとき' do
       let(:user_password) { 'foo' }
       let(:user_password_confirm) { 'bar' }
 
-      example 'エラーとなる ' do
+      example 'パスワード不一致のエラーとなる ' do
         expect(page).to have_content 'パスワード（確認）とパスワードの入力が一致しません'
       end
     end

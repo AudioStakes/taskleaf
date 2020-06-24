@@ -12,15 +12,13 @@ describe 'タスク管理機能', type: :system do
     click_button 'ログインする'
   end
 
-  shared_examples 'ユーザーAが作成したタスクが表示される' do
-    example { expect(page).to have_content '最初のタスク' }
-  end
-
   describe '一覧表示機能' do
     context 'ユーザーAがログインしているとき' do
       let(:login_user) { user_a }
 
-      it_behaves_like 'ユーザーAが作成したタスクが表示される'
+      example 'ユーザーAが作成したタスクが表示される' do
+        expect(page).to have_content '最初のタスク'
+      end
     end
 
     context 'ユーザーBがログインしているとき' do
@@ -40,7 +38,9 @@ describe 'タスク管理機能', type: :system do
         visit task_path(task_a)
       end
 
-      it_behaves_like 'ユーザーAが作成したタスクが表示される'
+      example 'ユーザーAが作成したタスクが表示される' do
+        expect(page).to have_content '最初のタスク'
+      end
     end
   end
 
@@ -53,7 +53,7 @@ describe 'タスク管理機能', type: :system do
       click_button '登録する'
     end
 
-    context '新規作成画面で名称を入力したとき' do
+    context '名称を入力したとき' do
       let(:task_name) { '新規作成のテストを書く' }
 
       example '正常に登録される' do
@@ -61,18 +61,18 @@ describe 'タスク管理機能', type: :system do
       end
     end
 
-    context '新規作成画面で名称を入力しなかったとき' do
+    context '名称を入力しなかったとき' do
       let(:task_name) { '' }
 
-      example '名称に「名前なし」が自動で設定される ' do
-        expect(page).to have_selector '.alert-success', text: '名前なし'
+      example '名称として「名無し」が設定される ' do
+        expect(page).to have_selector '.alert-success', text: '名無し'
       end
     end
 
-    context '新規作成画面で名称の長さを３１文字以上にしたとき' do
+    context '名称の長さを３１文字以上にしたとき' do
       let(:task_name) { '1234567890123456789012345678901' }
 
-      example 'エラーとなる ' do
+      example '長さ制限超過エラーとなる ' do
         expect(page).to have_content '名称は30文字以内で入力してください'
       end
     end
